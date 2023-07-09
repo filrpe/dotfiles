@@ -1,0 +1,37 @@
+// paleta de cores para o TILIX pessoal
+
+{
+    "background-color": "#262626",
+    "badge-color": "#8ABEB7",
+    "bold-color": "#FFFFFF",
+    "comment": "",
+    "cursor-background-color": "#000000",
+    "cursor-foreground-color": "#FFFFFF",
+    "foreground-color": "#FED7AF",
+    "highlight-background-color": "#000000",
+    "highlight-foreground-color": "#FFFFFF",
+    "name": "gruvbox",
+    "palette": [
+        "#2E3436",
+        "#F88219",
+        "#AFAF00",
+        "#C4A000",
+        "#729ECF",
+        "#AD7FA8",
+        "#33E2E2",
+        "#EEEEEC",
+        "#555753",
+        "#D75F5F",
+        "#94A861",
+        "#FCE94F",
+        "#73AC7E",
+        "#75507B",
+        "#ED333B",
+        "#D3D7CF"
+    ],
+    "use-badge-color": false,
+    "use-bold-color": false,
+    "use-cursor-color": false,
+    "use-highlight-color": false,
+    "use-theme-colors": false
+}
