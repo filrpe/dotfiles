@@ -769,8 +769,6 @@ awful.rules.rules = {
 --------------------------------------------------
 ----------------- AUTOSTART ----------------------
 --------------------------------------------------
-
-
     awful.spawn.with_shell('blueman-tray') --bluetooth
     awful.spawn.with_shell('nitrogen --restore') -- controlador de wallpaper
     awful.spawn.with_shell('xset s off') -- para não desligar a tela

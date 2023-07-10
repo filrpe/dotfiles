@@ -11,10 +11,9 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
---theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
+theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
 --theme.font          = "JetBrainsMono Nerd Font Propo SemiBold Italic 10"
-
-theme.font          = "FantasqueSansM Nerd Font Mono Regular 12"
+--theme.font          = "FantasqueSansM Nerd Font Mono Regular 12"
 --theme.font          = "ProggyClean CE Nerd Font 12"
 --theme.font          = "Font Awesome 9"
 --theme.font          = "Font Awesome 9"
@@ -106,7 +105,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = "~/.fehbg"
+theme.wallpaper = "~/Documentos/wallpapers/01batman.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
