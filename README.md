@@ -1,4 +1,8 @@
-``` 
+## Automate
+
+
+~~~bash
+
 ## Apps
 sudo apt install curl git htop gparted tilix neofetch geany flameshot nautilus rofi picom python3-pip pavucontrol gcc firefox qcalc blueman pulsemixer ranger nitrogen neovim vim wget lm_sensors lxappearance gimp build-essential libpam0g-dev libxcb-xkb-dev mlocate mpv pango pamixer qalculate shotwell steam xcalc xrandr xclip xprop zathura-pdf-poppler
 
@@ -26,4 +30,6 @@ ln -s ~/.dotfiles/.config/* ~/.config/ &&
 cd ~/.local/share/ && sudo mkdir rofi
 sudo ln -s ~/.dotfiles/.config/rofi/themes/ ~/.local/share/rofi/
 
-sudo ln -s ~/.dotfiles/.config/awesome/themes/ /usr/share/awesome/ ```
+sudo ln -s ~/.dotfiles/.config/awesome/themes/ /usr/share/awesome/ 
+
+~~~
