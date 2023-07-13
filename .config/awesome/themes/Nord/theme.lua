@@ -18,9 +18,15 @@ theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
 --theme.font          = "Font Awesome 9"
 --theme.font          = "Font Awesome 9"
 --theme.font          = "Font Awesome 9"
---
-theme.bg_normal     = "#272B36"
-theme.bg_focus      = "#272b36"
+
+
+
+--- ALTERAR A COR AQUI---------
+theme.bg_normal     = "#263b44"
+theme.bg_focus      = "#263b44"
+--theme.bg_normal  = "#272B36"
+--theme.bg_focus  = "#272B36"
+-------------------------------
 theme.bg_urgent     = "#593131"
 theme.bg_minimize   = "#000000"
 theme.bg_systray    = theme.bg_normal
@@ -35,6 +41,7 @@ theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#00BFFF" --"#eceff4"
 
+
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -47,8 +54,13 @@ theme.border_marked = "#91231c"
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
--- Example: 
-theme.tasklist_bg_focus  = "#272B36"
+-- Example:
+
+-- COR DO NORD PADRÃO-----------------
+--theme.tasklist_bg_focus  = "#272B36"
+--- ALTERAR A COR AQUI----------------
+theme.tasklist_bg_focus  = "#263b44"
+------------------------------------
 theme.tasklist_fg_focus  = "#D8DEE9"
 
 -- Generate taglist squares:
@@ -105,7 +117,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/Documentos/wallpapers/01batman.png"
+--theme.wallpaper = "~/Documentos/wallpapers/01batman.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

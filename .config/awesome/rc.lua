@@ -388,6 +388,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey         },   "p",        function () awful.spawn("/home/filipe/.config/scripts/rofi/rofi-search") end,
     	{description = "Rofi-search", group = "Personal launchers"}),
 
+ awful.key({ modkey         },   "x",        function () awful.spawn("/home/filipe/.config/scripts/rofi/power-menu.sh") end,
+    	{description = "Power-menu.sh", group = "Personal launchers"}),
+
+
+
+
     awful.key({ "Control"         },   "Up",      function () awful.spawn("/home/filipe/.config/scripts/notify/volume+") end,
         {description = "exec volup", group = "Personal launchers"}),
 
@@ -505,7 +511,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "x",
+    awful.key({ modkey }, "l",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",

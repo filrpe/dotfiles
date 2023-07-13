@@ -17,13 +17,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+## Links
 rm ~/.zshrc &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
-## Links
-ln -s ~/.dotfiles/.icons ~/.icons &&
 ln -s ~/.dotfiles/.fonts ~/.fonts &&
-ln -s ~/.dotfiles/.themes ~/.themes &&
 ln -s ~/.dotfiles/.gitconfig ~/ &&
 ln -s ~/.dotfiles/.config/* ~/.config/ &&
 
