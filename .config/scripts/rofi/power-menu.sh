@@ -18,9 +18,9 @@ rofi_command="rofi -theme ~/.local/share/rofi/themes/nord.rasi"
 #my_hostname=$(hostname)
 
 # Options
-shutdown=" Shutdown"
-reboot=" Reboot"
-logout=" Logout"
+shutdown=" shutdown"
+reboot=" reboot"
+logout=" logout"
 
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$logout"
