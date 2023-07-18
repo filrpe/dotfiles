@@ -11,9 +11,9 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
+--theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 11"
 --theme.font          = "JetBrainsMono Nerd Font Propo SemiBold Italic 10"
---theme.font          = "FantasqueSansM Nerd Font Mono Regular 12"
+theme.font          = "FantasqueSansM Nerd Font Regular 12"
 --theme.font          = "ProggyClean CE Nerd Font 12"
 --theme.font          = "Font Awesome 9"
 --theme.font          = "Font Awesome 9"
@@ -22,10 +22,10 @@ theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
 
 
 --- ALTERAR A COR AQUI---------
-theme.bg_normal     = "#263b44"
-theme.bg_focus      = "#263b44"
---theme.bg_normal  = "#272B36"
---theme.bg_focus  = "#272B36"
+--theme.bg_normal     = "#000000"
+--theme.bg_focus      = "#000000"
+theme.bg_normal  = "#272B36"
+theme.bg_focus  = "#272B36"
 -------------------------------
 theme.bg_urgent     = "#593131"
 theme.bg_minimize   = "#000000"
@@ -57,9 +57,9 @@ theme.border_marked = "#91231c"
 -- Example:
 
 -- COR DO NORD PADRÃO-----------------
---theme.tasklist_bg_focus  = "#272B36"
+theme.tasklist_bg_focus  = "#272B36"
 --- ALTERAR A COR AQUI----------------
-theme.tasklist_bg_focus  = "#263b44"
+--theme.tasklist_bg_focus  = "#000000"
 ------------------------------------
 theme.tasklist_fg_focus  = "#D8DEE9"
 

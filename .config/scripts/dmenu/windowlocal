@@ -1,5 +1,0 @@
-#!/bin/bash
-
-open="$(wmctrl -l | awk '{print $NF, $2+1}')"
-
-workspace="$(echo "${open[@]}" | dmenu -i -p "Janelas ")"
