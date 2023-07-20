@@ -18,6 +18,34 @@
 
 --Theme handling library
     local beautiful = require("beautiful")
+    -- Themes define colours, icons, font and wallpapers.
+    beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
+
+    local corner_radius = 4000
+
+-- Adicione uma regra para aplicar cantos arredondados a todas as janelas
+    awful.rules.rules = {
+    -- outras regras existentes
+    -- ...
+    -- Regra para adicionar cantos arredondados a todas as janelas
+    {
+        rule = {},
+        properties = {
+            -- outras propriedades existentes
+            -- Defina as propriedades para cantos arredondados
+            shape = function(cr, width, height)
+                gears.shape.rounded_rect(cr, width, height, corner_radius)
+            end,
+        },
+    },
+}
+
+
+
+
+
+
+
 
 -- Notification library
     local naughty = require("naughty")
@@ -28,8 +56,6 @@
 -- Load Debian menu entries
     local debian = require("debian.menu")
     local has_fdo, freedesktop = pcall(require, "freedesktop")
-
-
 
 ------------------------------------------------
 ------------------- ERRORS ---------------------
@@ -73,12 +99,15 @@
 ------------------------------------------------
 
 -- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-    beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
+
+
+
+
+
 
 
 -- This is used later as the default terminal and editor to run.
-    terminal = "tilix"
+    terminal = "alacritty"
     editor = os.getenv("EDITOR") or "nvim"
     editor_cmd = terminal .. " -e " .. "nvim"
     browser = "firefox"
@@ -91,9 +120,9 @@
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
     awful.layout.layouts = {
-    --    awful.layout.suit.floating,
-        awful.layout.suit.tile,
         awful.layout.suit.tile.left,
+        awful.layout.suit.floating,
+    --    awful.layout.suit.tile,
     --    awful.layout.suit.tile.bottom,
     --    awful.layout.suit.tile.top,
         awful.layout.suit.fair,
@@ -307,7 +336,9 @@
     }
 
 -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, visible = true })
+-- "top" em cima
+-- "bottom" em baixo
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, visible = true })
 
 -- Add widgets to the wibox
     s.mywibox:setup {
@@ -316,11 +347,8 @@
 
          { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mylayoutbox,
-            --base_size = 25,
+            mylauncher,
             tboxsep,
-            -- mylauncher,
-            --tbbaoxsep2,
             --tboxsep,
             --cpu,
             --ram,
@@ -341,14 +369,13 @@
             mytextclock,
             --tboxsep3,
             --wibox.widget.systray(),
-
             {
                 widget = wibox.widget.systray,
                 base_size = 26,
                 horizontal = true,
             },
-            tboxsep,
-                    },
+            s.mylayoutbox,
+        },
     }
 end)
 -- }}}
@@ -377,7 +404,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey         },   "a",    function () awful.spawn("tilix -e pulsemixer") end,
+    awful.key({ modkey         },   "a",    function () awful.spawn("alacritty -e pulsemixer") end,
     	{description = "Exec pulsemixer", group = "Personal launchers"}),
 
 
@@ -385,7 +412,7 @@ globalkeys = gears.table.join(
     	{description = "Exec pulsemixer", group = "Personal launchers"}),
 
 
-    awful.key({ modkey,         },  "s",    function () awful.spawn("tilix -e ranger") end,
+    awful.key({ modkey,         },  "s",    function () awful.spawn("alacritty -e ranger") end,
         {descrption = "Open ranger", group = "Personal launchers"}),
 
     awful.key({ "Control",         },   "space",    function () awful.spawn("rofi -show drun -display-drun ' Exec ' ") end,
@@ -394,7 +421,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         },   "Tab",      function () awful.spawn("rofi -show window ' Exec ' ") end,
         {description = "Rofi-switch-apps", group = "Personal launchers"}),
 
-    awful.key({ modkey         },   "t",      function () awful.spawn("tilix -e htop") end,
+    awful.key({ modkey         },   "t",      function () awful.spawn("alacritty -e htop") end,
         {description = "Open htop", group = "Personal launchers"}),
 
     awful.key({ modkey         },   "r",        function () awful.spawn("/home/filipe/.config/scripts/rofi/rofi-files") end,
@@ -771,7 +798,7 @@ awful.rules.rules = {
 --------------------- GAPS ----------------------
 --------------------------------------------------
 
-    beautiful.useless_gap = 3,
+    beautiful.useless_gap = 2,
 
 -- beautiful.gap_single_client   = false
 
@@ -790,13 +817,13 @@ awful.rules.rules = {
 --------------------------------------------------
 ----------------- AUTOSTART ----------------------
 --------------------------------------------------
-    awful.spawn.with_shell('blueman-tray') --bluetooth
     --awful.spawn.with_shell('flameshot') --bater print
     awful.spawn.with_shell('nitrogen --restore') -- controlador de wallpaper
+    awful.spawn.with_shell('blueman-tray') --bluetooth
     awful.spawn.with_shell('xset s off') -- para não desligar a tela
     awful.spawn.with_shell('xset r rate 300 50')
     awful.spawn.with_shell('xrandr -r 144') -- monitor 144hz
     awful.spawn.with_shell('xset -dpms')
     awful.spawn.with_shell('setxkbmap us alt-intl') -- teclado Ansi
     awful.spawn.with_shell('picom --experimental-backends') --background transluced
-
+    awful.spawn.with_shell('parcellite') --gerenciador de área de transferencia

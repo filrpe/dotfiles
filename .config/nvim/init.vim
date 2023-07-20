@@ -86,7 +86,38 @@ let g:ale_fix_on_save = 1
 
 
 
+"Copia do Vim para o clipboard
+set clipboard=unnamedplus
+set clipboard=unnamed
 
+"Copy/Paste/Cut
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
+
+
+"Ctrl+c - copiar
+vmap <C-c> "+yi
+
+"Ctrl+x - recortar
+vmap <C-x> "+c
+
+"Ctrl+v colar
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+"Ctrl+a para selecionar tudo
+noremap <C-a> gggH<C-O>G
+inoremap <C-a> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-a> <C-C>gggH<C-O>G
+onoremap <C-a> <C-C>gggH<C-O>G
+snoremap <C-a> <C-C>gggH<C-O>G
+xnoremap <C-a> <C-C>ggVG
+
+"Ctrl+s para salvar
+noremap <C-s> :w!<CR>i
+vnoremap <C-s> <C-C>:w!<CR>i
+inoremap <C-s> <C-O>:w!<CR>i
 
 
 

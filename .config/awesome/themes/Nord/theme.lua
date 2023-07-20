@@ -11,13 +11,13 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
---theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 11"
+--theme.font          = "JetBrainsMono Nerd Font 11"
 --theme.font          = "JetBrainsMono Nerd Font Propo SemiBold Italic 10"
-theme.font          = "FantasqueSansM Nerd Font Regular 12"
+theme.font          = "FantasqueSansM Nerd Font Bold 11"
 --theme.font          = "ProggyClean CE Nerd Font 12"
---theme.font          = "Font Awesome 9"
---theme.font          = "Font Awesome 9"
---theme.font          = "Font Awesome 9"
+--theme.font          = "Hack Nerd Font Bold 10"
+--theme.font          = "InconsolataNerd Font Bold 12"
+--theme.font          = "UbuntuMono-Bront bold 11"
 
 
 
@@ -39,8 +39,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
-theme.border_focus  = "#00BFFF" --"#eceff4"
-
+theme.border_focus  = "#999999" --"#eceff4"
 
 theme.border_marked = "#91231c"
 
