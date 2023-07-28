@@ -11,24 +11,21 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "JetBrainsMono Nerd Font 10"
+--theme.font          = "JetBrainsMono Nerd Font 11"
 --theme.font          = "JetBrainsMono Nerd Font Propo SemiBold Italic 10"
---theme.font          = "FantasqueSansM Nerd Font Regular 11"
+theme.font          = "FantasqueSansM Nerd Font Bold 11"
 --theme.font          = "ProggyClean CE Nerd Font 12"
 --theme.font          = "Hack Nerd Font Bold 10"
 --theme.font          = "InconsolataNerd Font Bold 12"
 --theme.font          = "UbuntuMono-Bront bold 11"
 
-
-
---- ALTERAR A COR AQUI---------
---theme.bg_normal     = "#000000"
---theme.bg_focus      = "#000000"
-theme.bg_normal  = "#272B36"
-theme.bg_focus  = "#272B36"
+--- ALTERAR A COR AQUI----------------
+theme.tasklist_bg_focus  = "#0a0a09"
+theme.bg_normal  = "#0a0a09"
+theme.bg_focus  = "#0a0a09"
 -------------------------------
 theme.bg_urgent     = "#593131"
-theme.bg_minimize   = "#000000"
+theme.bg_minimize   = "#151513"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ECEFF4"
@@ -38,8 +35,8 @@ theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#eceff4"
+theme.border_normal = "#151513"
+theme.border_focus  = "#999999" --"#eceff4"
 
 theme.border_marked = "#91231c"
 
@@ -55,10 +52,7 @@ theme.border_marked = "#91231c"
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 
--- COR DO NORD PADRÃO-----------------
-theme.tasklist_bg_focus  = "#272B36"
---- ALTERAR A COR AQUI----------------
---theme.tasklist_bg_focus  = "#000000"
+
 ------------------------------------
 theme.tasklist_fg_focus  = "#D8DEE9"
 

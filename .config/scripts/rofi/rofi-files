@@ -9,24 +9,21 @@
 # Defining the text editor to use.
 # DMENUEDITOR="vim"
 # DMENUEDITOR="leafpad"
-DMEDITOR="tilix -e nvim"
+DMEDITOR="alacritty -e nvim"
 
 # An array of options to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"awesome - $HOME/.config/awesome/rc.lua"
-#"i3 - $HOME/.config/i3/config"
-#"herbstluftwm - $HOME/.config/herbstluftwm/autostart"
-"zsh - $HOME/.zshrc"
-"bash - $HOME/.bashrc"
-"neovim - $HOME/.config/nvim/init.vim"
-"picom - $HOME/.config/picom/picom.conf"
-#"alacritty - $HOME/.config/alacritty/alacritty.yml"
-#"kitty - $HOME/.config/kitty/kitty.conf"
-#"roteiros - /media/gabriel/media/Documentos/TWMLINUX"
-"gtk-css - $HOME/.config/gtk-3.0/gtk.css"
-#"files - $HOME/Scripts/searchfiles"
-"quit"
+
+    "1) awesome - $HOME/.config/awesome/rc.lua"
+    "2) alacritty - $HOME/.config/alacritty/alacritty.yml"
+    "3) zsh - $HOME/.zshrc"
+    "4) bash - $HOME/.bashrc"
+    "5) neovim - $HOME/.config/nvim/init.vim"
+    "6) picom - $HOME/.config/picom/picom.conf"
+    "7) rofi-files - $HOME/.config/scripts/rofi/rofi-files"
+    "8) theme awesome - /usr/share/awesome/themes/Nord/theme.lua"
+    "quit"
 )
 
 # Piping the above array into dmenu.

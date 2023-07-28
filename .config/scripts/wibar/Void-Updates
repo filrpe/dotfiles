@@ -1,4 +1,4 @@
 #!/bin/bash
 
-UPDATES=$(xbps-install -nuM | wc -l ; xbps-install -nuM | awk '{print $1}')
+UPDATES=$(apt-show-versions -u | wc -l ; apt-show-versions -nuM | awk '{print $1}')
 echo "$UPDATES "

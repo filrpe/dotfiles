@@ -19,6 +19,7 @@
 --Theme handling library
     local beautiful = require("beautiful")
     -- Themes define colours, icons, font and wallpapers.
+    --beautiful.init(gears.filesystem.get_themes_dir() .. "My/theme.lua")
     beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
 
     local corner_radius = 4000
@@ -28,16 +29,32 @@
     -- outras regras existentes
     -- ...
     -- Regra para adicionar cantos arredondados a todas as janelas
-    {
-        rule = {},
-        properties = {
+
+
+
+
+-- Função para executar sempre que uma nova janela (cliente) for criada
+    client.connect_signal("manage", function (c)
+    -- Verifica se o cliente corresponde ao aplicativo que queremos em modo float
+        if c.instance == "knotes" then
+        -- Define o cliente como flutuante
+            c.floating = true
+        end
+    end)
+
+
+    -- Regra para o aplicativo abrir sempre em modo float
+
+  --  {
+    --    rule = {},
+      --  properties = {
             -- outras propriedades existentes
             -- Defina as propriedades para cantos arredondados
-            shape = function(cr, width, height)
-                gears.shape.rounded_rect(cr, width, height, corner_radius)
-            end,
-        },
-    },
+        --    shape = function(cr, width, height)
+          --      gears.shape.rounded_rect(cr, width, height, corner_radius)
+            --end,
+        --},
+    --},
 }
 
 
@@ -85,26 +102,12 @@
         end)
     end
 -- }}}
-------------------------------------------------
--------------- LIVEWALLPAPER -------------------
-------------------------------------------------
-    -- awful.spawn.with_shell("/$HOME/.dotfiles/.config/scripts/screensaver.sh")
-
-
-
-
 
 ------------------------------------------------
 ------------------- OPTIONS --------------------
 ------------------------------------------------
 
 -- {{{ Variable definitions
-
-
-
-
-
-
 
 -- This is used later as the default terminal and editor to run.
     terminal = "alacritty"
@@ -125,7 +128,7 @@
     --    awful.layout.suit.tile,
     --    awful.layout.suit.tile.bottom,
     --    awful.layout.suit.tile.top,
-        awful.layout.suit.fair,
+    --    awful.layout.suit.fair,
     --    awful.layout.suit.fair.horizontal,
     --    awful.layout.suit.spiral,
     --    awful.layout.suit.spiral.dwindle,
@@ -143,13 +146,10 @@
 ------------------------------------------------
 ------------------- WIDGETS --------------------
 ------------------------------------------------
-
-
 -- Separator Blanc
-    tboxsep = wibox.widget.textbox(" ")
-    tboxsep2 = wibox.widget.textbox("〣")
-    tboxsep3 = wibox.widget.textbox("┈")
-    tboxsep4 = wibox.widget.textbox("  󱞫 ")
+    tboxsep1 = wibox.widget.textbox(" ")
+    tboxsep2 = wibox.widget.textbox("  ")
+    tboxsep3 = wibox.widget.textbox(" ")
 
 
 -- Keyboard map indicator and switcher
@@ -176,6 +176,15 @@
 --cpuw:set_widget(cpu)
 --cpuw:set_bg("#1a1a1a")
 --cpuw:set_shape(gears.shape.rectangle)
+
+-- Disk
+    local disk = awful.widget.watch('/home/filipe/.config/scripts/wibar/disk-bar')
+
+-- Updates
+    local updates = awful.widget.watch('/home/filipe/.config/scripts/wibar/debian-updates')
+
+
+
 
 -- Ram
     local ram = awful.widget.watch('/home/filipe/.config/scripts/wibar/ram-wibox')
@@ -308,7 +317,7 @@
     set_wallpaper(s)
 
 -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7" }, s, awful.layout.layouts[1])
+    awful.tag({ "I","II","III","IV","V" }, s, awful.layout.layouts[1])
 
 -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -338,7 +347,7 @@
 -- Create the wibox
 -- "top" em cima
 -- "bottom" em baixo
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, visible = true })
+    s.mywibox = awful.wibar({ position = "top", screen = s, visible = true })
 
 -- Add widgets to the wibox
     s.mywibox:setup {
@@ -348,12 +357,15 @@
          { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
+            s.mytaglist,
             tboxsep,
             --tboxsep,
-            --cpu,
-            --ram,
-            --tboxsep2,
-            s.mytaglist,
+            cpu,
+            ram,
+            disk,
+            weather,
+            updates,
+            tboxsep2,
             tboxsep4,
             s.mypromptbox,
         },
@@ -362,8 +374,8 @@
             layout = wibox.layout.fixed.horizontal,
 
             --tboxsep2,
-            --mykeyboardlayout,
-            -- volumecfg.widget,
+            mykeyboardlayout,
+            --volumecfg.widget,
             volume,
             --tboxsep3,
             mytextclock,
@@ -506,10 +518,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "Left", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
 
-    awful.key({ modkey, "Control"          }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, "Control"          }, "Left",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
 
-    awful.key({ modkey, "Control"          }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, "Control"          }, "Right",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
 
 
@@ -798,7 +810,7 @@ awful.rules.rules = {
 --------------------- GAPS ----------------------
 --------------------------------------------------
 
-    beautiful.useless_gap = 2,
+    beautiful.useless_gap = 4,
 
 -- beautiful.gap_single_client   = false
 
@@ -827,3 +839,5 @@ awful.rules.rules = {
     awful.spawn.with_shell('setxkbmap us alt-intl') -- teclado Ansi
     awful.spawn.with_shell('picom --experimental-backends') --background transluced
     awful.spawn.with_shell('parcellite') --gerenciador de área de transferencia
+    awful.spawn.with_shell('knotes') --gerenciador de área de transferencia
+

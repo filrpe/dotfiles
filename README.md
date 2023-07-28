@@ -4,7 +4,7 @@
 ~~~bash
 
 ## Apps
-sudo apt install curl git htop gparted tilix neofetch geany flameshot nautilus rofi picom python3-pip pavucontrol gcc firefox qcalc blueman pulsemixer ranger nitrogen neovim vim wget lm_sensors lxappearance gimp build-essential libpam0g-dev libxcb-xkb-dev mlocate mpv pango pamixer qalculate shotwell steam xcalc xrandr xclip xprop zathura-pdf-poppler translate-shell fzf w3m-img
+sudo apt install curl git htop gparted tilix neofetch geany flameshot nautilus rofi picom python3-pip pavucontrol gcc firefox qcalc blueman pulsemixer ranger nitrogen vim neovim wget lm_sensors lxappearance gimp build-essential libpam0g-dev libxcb-xkb-dev mlocate mpv pango pamixer qalculate shotwell steam xcalc xrandr xclip xprop zathura-pdf-poppler translate-shell fzf w3m-img apt-show-versions fonts-font-awesome awesome awesome-extra
 
 ## Install zsh
 sudo apt install zsh && zsh
@@ -29,5 +29,9 @@ cd ~/.local/share/ && sudo mkdir rofi
 sudo ln -s ~/.dotfiles/.config/rofi/themes/ ~/.local/share/rofi/
 
 sudo ln -s ~/.dotfiles/.config/awesome/themes/ /usr/share/awesome/
+
+## Reload fonts
+fc-cache -f -v
+
 
 ~~~

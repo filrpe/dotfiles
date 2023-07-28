@@ -50,10 +50,11 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/sonokai'
 Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 
 " Themes""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -61,6 +62,7 @@ if exists('+termguicolors')
 endif
 
 colorscheme onehalfdark
+
 
 if (has("nvim")) "Transparent background. Only for nvim
     highlight Normal guibg=NONE ctermbg=NONE
@@ -100,7 +102,7 @@ endif
 vmap <C-c> "+yi
 
 "Ctrl+x - recortar
-vmap <C-x> "+c
+"vmap <C-x> "+c
 
 "Ctrl+v colar
 vmap <C-v> c<ESC>"+p
@@ -118,7 +120,4 @@ xnoremap <C-a> <C-C>ggVG
 noremap <C-s> :w!<CR>i
 vnoremap <C-s> <C-C>:w!<CR>i
 inoremap <C-s> <C-O>:w!<CR>i
-
-
-
 

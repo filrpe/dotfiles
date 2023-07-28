@@ -2,5 +2,5 @@
 
 pactl set-sink-volume @DEFAULT_SINK@ +5%;pkill -RTMIN+5 dwmblocks
 
-VOL=$(pamixer --get-volume)
+VOL=$(pamixer -iget-volume)
 notify-send -t 925 "Volume: $VOL"

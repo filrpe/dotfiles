@@ -13,19 +13,19 @@
 # single     single_circle     single_full     single_full_circle     single_rounded     single_text
 
 style="power"
-rofi_command="rofi -theme ~/.local/share/rofi/themes/nord.rasi"
+rofi_command="rofi -theme ~/.local/share/rofi/themes/squared-nord.rasi"
 #uptime=$(uptime -p)
 #my_hostname=$(hostname)
 
 # Options
-shutdown=" shutdown"
-reboot=" reboot"
-logout=" logout"
+shutdown="     shutdown"
+reboot="     reboot"
+logout="     logout"
 
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p " ? " -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p " Select " -dmenu -selected-row 2)"
 case $chosen in
 
     $shutdown) poweroff ;;

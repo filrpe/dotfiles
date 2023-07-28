@@ -16,5 +16,4 @@ rofi.drun-icon-theme: Pop
 rofi.sidebar-mode: true
 rofi.m: -4
 
-
 rofi.theme: /home/filipe/.config/rofi/themes/squared-nord.rasi
