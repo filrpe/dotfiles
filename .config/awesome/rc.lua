@@ -3,6 +3,18 @@
     pcall(require, "luarocks.loader")
 
 ------------------------------------------------
+------------------WALLPAPER-LIVE----------------
+------------------------------------------------
+    --awful.spawn.with_shell("/home/filipe/wlive.sh")
+
+
+
+
+
+
+
+
+------------------------------------------------
 ------------------ LIBRARIES -------------------
 ------------------------------------------------
 
@@ -18,9 +30,9 @@
 
 --Theme handling library
     local beautiful = require("beautiful")
-    -- Themes define colours, icons, font and wallpapers.
-    --beautiful.init(gears.filesystem.get_themes_dir() .. "My/theme.lua")
-    beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
+    --Themes define colours, icons, font and wallpapers.
+        beautiful.init(gears.filesystem.get_themes_dir() .. "My/theme.lua")
+      -- beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
 
     local corner_radius = 4000
 
@@ -30,9 +42,6 @@
     -- ...
     -- Regra para adicionar cantos arredondados a todas as janelas
 
-
-
-
 -- Função para executar sempre que uma nova janela (cliente) for criada
     client.connect_signal("manage", function (c)
     -- Verifica se o cliente corresponde ao aplicativo que queremos em modo float
@@ -40,8 +49,13 @@
         -- Define o cliente como flutuante
             c.floating = true
         end
-    end)
 
+         if c.instance == "pavucontrol" then
+        -- Define o cliente como flutuante
+            c.floating = true
+        end
+
+    end)
 
     -- Regra para o aplicativo abrir sempre em modo float
 
@@ -56,13 +70,6 @@
         --},
     --},
 }
-
-
-
-
-
-
-
 
 -- Notification library
     local naughty = require("naughty")
@@ -120,7 +127,6 @@
     --modkey = "Mod4" -- Win
     modkey = "Mod1" -- Alt
 
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
     awful.layout.layouts = {
         awful.layout.suit.tile.left,
@@ -128,7 +134,7 @@
     --    awful.layout.suit.tile,
     --    awful.layout.suit.tile.bottom,
     --    awful.layout.suit.tile.top,
-    --    awful.layout.suit.fair,
+        awful.layout.suit.fair,
     --    awful.layout.suit.fair.horizontal,
     --    awful.layout.suit.spiral,
     --    awful.layout.suit.spiral.dwindle,
@@ -144,9 +150,11 @@
 
 
 ------------------------------------------------
-------------------- WIDGETS --------------------
+---------------WIBAR - WIDGETS -----------------
 ------------------------------------------------
 -- Separator Blanc
+    tboxsep = wibox.widget.textbox("     ")
+
     tboxsep1 = wibox.widget.textbox(" ")
     tboxsep2 = wibox.widget.textbox("  ")
     tboxsep3 = wibox.widget.textbox(" ")
@@ -183,9 +191,6 @@
 -- Updates
     local updates = awful.widget.watch('/home/filipe/.config/scripts/wibar/debian-updates')
 
-
-
-
 -- Ram
     local ram = awful.widget.watch('/home/filipe/.config/scripts/wibar/ram-wibox')
 --local ramw = wibox.widget.background()
@@ -207,12 +212,9 @@
     updatew:set_bg("#1a1a1a")
     updatew:set_shape(gears.shape.rectangular_tag)
 
-
-
 ------------------------------------------------
 -------------------- WIBAR ---------------------
 ------------------------------------------------
-
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -241,7 +243,6 @@
                     }
         })
     end
-
 
     mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -317,7 +318,7 @@
     set_wallpaper(s)
 
 -- Each screen has its own tag table.
-    awful.tag({ "I","II","III","IV","V" }, s, awful.layout.layouts[1])
+    awful.tag({"¹","²","³","⁴"}, s, awful.layout.layouts[1])
 
 -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -347,7 +348,7 @@
 -- Create the wibox
 -- "top" em cima
 -- "bottom" em baixo
-    s.mywibox = awful.wibar({ position = "top", screen = s, visible = true })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, visible = true })
 
 -- Add widgets to the wibox
     s.mywibox:setup {
@@ -357,24 +358,22 @@
          { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
+            tboxsep1,
             s.mytaglist,
-            tboxsep,
-            --tboxsep,
+            tboxsep1,
             cpu,
             ram,
             disk,
-            weather,
+            --weather,
             updates,
-            tboxsep2,
             tboxsep4,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-
             --tboxsep2,
-            mykeyboardlayout,
+            --mykeyboardlayout,
             --volumecfg.widget,
             volume,
             --tboxsep3,
@@ -391,7 +390,6 @@
     }
 end)
 -- }}}
-
 
 ------------------------------------------------
 ----------------- KEYBINDINGS ------------------
@@ -445,14 +443,25 @@ globalkeys = gears.table.join(
  awful.key({ modkey         },   "x",        function () awful.spawn("/home/filipe/.config/scripts/rofi/power-menu.sh") end,
     	{description = "Power-menu.sh", group = "Personal launchers"}),
 
-
+    awful.key({ modkey         },   "u",        function () awful.spawn("/home/filipe/.config/scripts/notify/autoupdate.sh") end,
+    	{description = "Check Updates", group = "Personal launchers"}),
 
 
     awful.key({ "Control"         },   "Up",      function () awful.spawn("/home/filipe/.config/scripts/notify/volume+") end,
-        {description = "exec volup", group = "Personal launchers"}),
+        {description = "exec volup", group = "Volume"}),
 
     awful.key({ "Control"         },   "Down",      function () awful.spawn("/home/filipe/.config/scripts/notify/volume-") end,
-        {descritipn = "exec voldown", group = "Personal launchers"}),
+        {descritipn = "exec voldown", group = "Volume"}),
+
+    -- Configuração de atalhos de teclado (KNOB DO VOLUME)
+        awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
+          {description = "Aumentar volume", group = "Volume"}),
+
+        awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
+          {description = "Diminuir volume", group = "Volume"}),
+        awful.key({ }, "XF86AudioMute", function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")end, { description = "Mutar volume", group = "Volume" }),
+
+
 
     awful.key({ "Control", "Shift"          }, "h",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -489,8 +498,6 @@ globalkeys = gears.table.join(
        -- end,
         --{description = "go back", group = "client"}),
 
-
-
     -- Control Clients
     awful.key({ "Control",           }, "j",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
@@ -503,9 +510,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, 	  }, "n",  awful.client.floating.toggle,
               {description = "toggle floating", group = "client"}),
 
-
     -- Layout Manipulation
-
     awful.key({ modkey,           }, "Left", function () awful.client.focus.byidx( 1) end,
         {description = "focus next by index", group = "client"}),
 
@@ -545,8 +550,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-
-
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
@@ -558,8 +561,6 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
-
-
 
     -- Prompt
     awful.key({ modkey },            "F6",     function () awful.screen.focused().mypromptbox:run() end,
@@ -592,8 +593,6 @@ clientkeys = gears.table.join(
 -- Close Clients
     awful.key({ modkey,    }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-
-
 
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -713,7 +712,6 @@ clientbuttons = gears.table.join(
 
     end
 
-
 ------------------------------------------------
 -------------------- RULES ---------------------
 ------------------------------------------------
@@ -829,15 +827,22 @@ awful.rules.rules = {
 --------------------------------------------------
 ----------------- AUTOSTART ----------------------
 --------------------------------------------------
-    --awful.spawn.with_shell('flameshot') --bater print
+    awful.spawn.with_shell('flameshot') --bater print
     awful.spawn.with_shell('nitrogen --restore') -- controlador de wallpaper
-    awful.spawn.with_shell('blueman-tray') --bluetooth
     awful.spawn.with_shell('xset s off') -- para não desligar a tela
     awful.spawn.with_shell('xset r rate 300 50')
     awful.spawn.with_shell('xrandr -r 144') -- monitor 144hz
-    awful.spawn.with_shell('xset -dpms')
-    awful.spawn.with_shell('setxkbmap us alt-intl') -- teclado Ansi
+    awful.spawn.with_shell('xset -dpms') --awful.spawn.with_shell('setxkbmap us alt-intl') -- teclado Ansi
+    awful.spawn.with_shell('setxkbmap us intl') -- teclado Ansi
     awful.spawn.with_shell('picom --experimental-backends') --background transluced
     awful.spawn.with_shell('parcellite') --gerenciador de área de transferencia
     awful.spawn.with_shell('knotes') --gerenciador de área de transferencia
+    awful.spawn.with_shell('/home/filipe/.config/scripts/notify/autoupdate.sh') --verificar atualizações
+    awful.spawn.with_shell('blueman-tray') --bluetooth
+   -- awful.spawn.with_shell('localsend_app') --localsend
+
+
+
+
+
 

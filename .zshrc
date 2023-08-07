@@ -10,6 +10,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ----- Themes
+ZSH_THEME="gentoo"
+#ZSH_THEME="eastwood"
+#ZSH_THEME="clean"
 #ZSH_THEME="kafeitu"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="jtriley"
@@ -23,8 +26,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #ZSH_THEME="rgm"
 #ZSH_THEME="norm"
 #ZSH_THEME="bureau"
-ZSH_THEME="lambda"
-
+#ZSH_THEME="lambda"
 #
 #
 

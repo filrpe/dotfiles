@@ -1,6 +1,0 @@
-#!/bin/bash
-
-
-UPDATES=$(checkupdates | wc -l ; checkupdates)
-
-notify-send "UPDATES :  $UPDATES"

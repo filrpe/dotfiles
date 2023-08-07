@@ -1,7 +1,0 @@
-#!/bin/bash
-
-#W=$(curl -s https://wttr.in/Rio-de-Janeiro?format="%t\n" | head -n 3)
-#echo "$W "
-
-
-W=$(curl -s https://weather.com/weather/today/l/9274324460970180f3c157f373dbde4b21f7c40307de004f3c63ad1c70244a17?format="%t\n" | head -n 3)

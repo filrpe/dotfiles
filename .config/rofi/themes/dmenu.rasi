@@ -5,10 +5,10 @@
  */
 
 * {
-    background-color:      #111111;
+    background-color:      Black;
     border-color:          White;
     text-color:           White;
-    font:            "Inconsolata 11";
+    font:            "Times New Roman 12";
 }
 window {
     anchor:     north;
@@ -34,8 +34,7 @@ element {
     padding: 0px 2px;
 }
 element selected {
-    background-color: LightGrey;
-    text-color: Black;
+    background-color: SteelBlue;
 }
 
 element-text, element-icon {

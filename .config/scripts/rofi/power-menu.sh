@@ -18,12 +18,12 @@ rofi_command="rofi -theme ~/.local/share/rofi/themes/squared-nord.rasi"
 #my_hostname=$(hostname)
 
 # Options
-shutdown="     shutdown"
-reboot="     reboot"
-logout="     logout"
+shutdown="    shutdown"
+reboot="    reboot"
+logout="   logout"
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$logout"
+options="$logout\n$reboot\n$shutdown"
 
 chosen="$(echo -e "$options" | $rofi_command -p " Select " -dmenu -selected-row 2)"
 case $chosen in

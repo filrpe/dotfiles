@@ -12,17 +12,17 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 
 --theme.font          = "JetBrainsMono Nerd Font 11"
---theme.font          = "JetBrainsMono Nerd Font Propo SemiBold Italic 10"
-theme.font          = "FantasqueSansM Nerd Font Bold 11"
+theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
+--theme.font          = "FantasqueSansM Nerd Font Bold 11"
 --theme.font          = "ProggyClean CE Nerd Font 12"
 --theme.font          = "Hack Nerd Font Bold 10"
 --theme.font          = "InconsolataNerd Font Bold 12"
 --theme.font          = "UbuntuMono-Bront bold 11"
 
 --- ALTERAR A COR AQUI----------------
-theme.tasklist_bg_focus  = "#0a0a09"
-theme.bg_normal  = "#0a0a09"
-theme.bg_focus  = "#0a0a09"
+theme.tasklist_bg_focus  = "#282c34"
+theme.bg_normal  = "#282c34"
+theme.bg_focus  = "#728c8d"
 -------------------------------
 theme.bg_urgent     = "#593131"
 theme.bg_minimize   = "#151513"
@@ -57,7 +57,7 @@ theme.border_marked = "#91231c"
 theme.tasklist_fg_focus  = "#D8DEE9"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
+local taglist_square_size = dpi(3)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )

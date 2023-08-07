@@ -1,4 +1,0 @@
-#!/bin/bash
-
-UPDATES=$(apt-show-versions -u | wc -l ; apt-show-versions -nuM | awk '{print $1}')
-echo "$UPDATES "
