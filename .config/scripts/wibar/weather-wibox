@@ -1,4 +1,5 @@
-#!/bin/bash
+#/bin/bash
 
 W=$(curl -s https://wttr.in/Belem?format="%t\n" | head -n 3)
-echo "|   $W "
+echo " $W"
+

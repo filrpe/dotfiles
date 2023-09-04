@@ -20,9 +20,9 @@ theme.font          = "JetBrainsMono Nerd Font Propo SemiBold 10"
 --theme.font          = "UbuntuMono-Bront bold 11"
 
 --- ALTERAR A COR AQUI----------------
-theme.tasklist_bg_focus  = "#282c34"
-theme.bg_normal  = "#282c34"
-theme.bg_focus  = "#728c8d"
+theme.tasklist_bg_focus  = "#"--"#282c34"
+theme.bg_normal  = "#"--"#282c34"
+theme.bg_focus  = "#F"--"#728c8d"
 -------------------------------
 theme.bg_urgent     = "#593131"
 theme.bg_minimize   = "#151513"
@@ -36,7 +36,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
 theme.border_normal = "#151513"
-theme.border_focus  = "#999999" --"#eceff4"
+theme.border_focus  = "#FFFFFF"--"#999999" --"#eceff4"
 
 theme.border_marked = "#91231c"
 
@@ -57,7 +57,7 @@ theme.border_marked = "#91231c"
 theme.tasklist_fg_focus  = "#D8DEE9"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(3)
+local taglist_square_size = dpi(5)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )

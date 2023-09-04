@@ -1,11 +1,11 @@
 /*******************************************************************************
- * MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI
- * User                 : LR-Tech
+ * MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI 
+ * User                 : LR-Tech               
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
 * {
-    font:   "JetBrainsMono Nerd Font 12";
+    font:   "Montserrat 12";
 
     bg0:    #242424E6;
     bg1:    #7E7E7E80;
@@ -32,7 +32,7 @@ window {
 }
 
 inputbar {
-    font:       "JetBrainsMono Nerd Font 12";
+    font:       "Montserrat 20";
     padding:    12px;
     spacing:    12px;
     children:   [ icon-search, entry ];
