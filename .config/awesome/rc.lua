@@ -27,9 +27,9 @@
 --Theme handling library
     local beautiful = require("beautiful")
     --Themes define colours, icons, font and wallpapers.
-        --beautiful.init(gears.filesystem.get_themes_dir() .. "My/theme.lua")
+        beautiful.init(gears.filesystem.get_themes_dir() .. "My/theme.lua")
         --beautiful.init(gears.filesystem.get_themes_dir() .. "Nord/theme.lua")
-        beautiful.init(gears.filesystem.get_themes_dir() .. "Aqua2/theme.lua")
+        --beautiful.init(gears.filesystem.get_themes_dir() .. "Aqua2/theme.lua")
 
 
 
@@ -123,7 +123,7 @@
 -- {{{ Variable definitions
 
 -- This is used later as the default terminal and editor to run.
-    terminal = "tilix"
+    terminal = "alacritty"
     editor = os.getenv("EDITOR") or "nvim"
     editor_cmd = terminal .. " -e " .. "nvim"
     browser = "firefox"
@@ -341,7 +341,7 @@
     set_wallpaper(s)
 
 -- Each screen has its own tag table.
-    awful.tag({"1","2","3","4"}, s, awful.layout.layouts[1])
+    awful.tag({"1","2","3","4","5","6",}, s, awful.layout.layouts[1])
 --    awful.tag({"I","II","III","IV"}, s, awful.layout.layouts[1])
 
 -- Create a promptbox for each screen
@@ -371,7 +371,7 @@
 
 -- Create the wibox
 -- "top" em cima e "bottom" em baixo
-    s.mywibox = awful.wibar({ position = "top", screen = s, visible = true })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, visible = true })
 
 -- Add widgets to the wibox
     s.mywibox:setup {
@@ -412,15 +412,15 @@
             volume_widget{widget_type = 'arc'},volume,sep,sep,
             --weather,
             --date,
+                        --wibox.widget.systray(),
+            mykeyboardlayout,
+            mytextclock,
+            s.mylayoutbox,
             {
                widget = wibox.widget.systray,
                base_size = 20,
                horizontal = true,
             },
-            --wibox.widget.systray(),
-            mykeyboardlayout,
-            mytextclock,
-            s.mylayoutbox,
 
         },
     }
@@ -450,7 +450,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey         },   "a",    function () awful.spawn("tilix -e pulsemixer") end,
+    awful.key({ modkey         },   "a",    function () awful.spawn("alacritty -e pulsemixer") end,
     	{description = "Exec pulsemixer", group = "Personal launchers"}),
 
 
@@ -458,7 +458,7 @@ globalkeys = gears.table.join(
     	{description = "Exec pulsemixer", group = "Personal launchers"}),
 
 
-    awful.key({ modkey,         },  "s",    function () awful.spawn("tilix -e ranger") end,
+    awful.key({ modkey,         },  "s",    function () awful.spawn("alacritty -e ranger") end,
         {descrption = "Open ranger", group = "Personal launchers"}),
 
     awful.key({ "Control",         },   "space",    function () awful.spawn("rofi -show drun -display-drun ' Exec ' ") end,
@@ -467,7 +467,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         },   "Tab",      function () awful.spawn("rofi -show window ' Exec ' ") end,
         {description = "Rofi-switch-apps", group = "Personal launchers"}),
 
-    awful.key({ modkey         },   "t",      function () awful.spawn("tilix -e htop") end,
+    awful.key({ modkey         },   "t",      function () awful.spawn("alacritty -e htop") end,
         {description = "Open htop", group = "Personal launchers"}),
 
     awful.key({ modkey         },   "r",        function () awful.spawn("/home/filipe/.config/scripts/rofi/rofi-files") end,
