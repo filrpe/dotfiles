@@ -4,9 +4,7 @@
 ~~~bash
 
 ## Apps
-sudo apt install curl git htop gparted tilix neofetch geany flameshot nautilus rofi picom python3-pip pavucontrol gcc firefox qcalc blueman pulsemixer ranger nitrogen vim neovim wget lm_sensors lxappearance gimp build-essential libpam0g-dev libxcb-xkb-dev mlocate mpv pango pamixer qalculate shotwell steam xcalc xrandr xclip xprop zathura-pdf-poppler translate-shell fzf w3m-img apt-show-versions fonts-font-awesome awesome awesome-extra
-
-meson asciidoc font-manager libncurses5-dev linux-headers-amd64 knotes qimgv libevdev2 libpcre3-dev
+sudo apt install curl git htop gparted tilix neofetch geany flameshot nautilus rofi picom python3-pip pavucontrol gcc firefox qcalc blueman pulsemixer ranger nitrogen vim neovim wget lm_sensors lxappearance gimp build-essential libpam0g-dev libxcb-xkb-dev mlocate mpv pango pamixer qalculate shotwell steam xcalc xrandr xclip xprop zathura-pdf-poppler translate-shell fzf w3m-img apt-show-versions fonts-font-awesome awesome awesome-extra meson asciidoc font-manager libncurses5-dev linux-headers-amd64 knotes qimgv libevdev2 libpcre3-dev
 
 
 ## Install zsh
@@ -24,13 +22,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 rm ~/.zshrc &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
-ln -s ~/.dotfiles/.fonts ~/.fonts &&
-ln -s ~/.dotfiles/.gitconfig ~/ &&
-ln -s ~/.dotfiles/.config/* ~/.config/ &&
+ln -s ~/.dotfiles/.fonts ~/.fonts && ln -s ~/.dotfiles/.gitconfig ~/ && ln -s ~/.dotfiles/.config/* ~/.config/
 
 cd ~/.local/share/ && sudo mkdir rofi
 sudo ln -s ~/.dotfiles/.config/rofi/themes/ ~/.local/share/rofi/
-
 sudo ln -s ~/.dotfiles/.config/awesome/themes/ /usr/share/awesome/
 
 ## Reload fonts
