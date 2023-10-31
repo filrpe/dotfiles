@@ -51,6 +51,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/sonokai'
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -61,7 +62,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme onehalfdark
+colorscheme base16-default-dark
+"colorscheme onehalfdark
 
 
 if (has("nvim")) "Transparent background. Only for nvim
@@ -120,4 +122,3 @@ xnoremap <C-a> <C-C>ggVG
 noremap <C-s> :w!<CR>i
 vnoremap <C-s> <C-C>:w!<CR>i
 inoremap <C-s> <C-O>:w!<CR>i
-
