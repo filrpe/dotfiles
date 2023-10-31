@@ -209,44 +209,50 @@ draw_bold_text_with_bright_colors: true
 # Template
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
-# Colors (One Half Dark)
+
+
+# Base16 Classic Dark - alacritty color config
+# Jason Heeris (http://heeris.id.au)
 colors:
+  # Default colors
   primary:
-    #background: '0x282c34'
-    background: '0x1C1F25'
-    #background: '0x151513'
-    foreground: '0xdcdfe4'
+    background: '0x151515'
+    foreground: '0xd0d0d0'
 
-  normal:
-    black: '0x282c34'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xdcdfe4'
-
-  bright:
-    black: '0x67675F'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xdcdfe4'
-
-
-
-
-  # Colors (Tomorrow Night Bright)
-
+  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    #text: '0x1d1f21'
-    text: '0xFFFFFF'
-    #cursor: '0x00FF20'
-    cursor: '0xe06c75'
+    text: '0x151515'
+    cursor: '0xd0d0d0'
+
+  # Normal colors
+  normal:
+    black:   '0x151515'
+    red:     '0xac4142'
+    green:   '0x90a959'
+    yellow:  '0xf4bf75'
+    blue:    '0x6a9fb5'
+    magenta: '0xaa759f'
+    cyan:    '0x75b5aa'
+    white:   '0xd0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '0x505050'
+    red:     '0xd28445'
+    green:   '0x202020'
+    yellow:  '0x303030'
+    blue:    '0xb0b0b0'
+    magenta: '0xe0e0e0'
+    cyan:    '0x8f5536'
+    white:   '0xf5f5f5'
+
+draw_bold_text_with_bright_colors: false
+
+
+
+
+
+
   # Normal colors
 selection:
   # This string contains all characters that are used as separators for
